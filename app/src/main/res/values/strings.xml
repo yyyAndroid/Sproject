@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">SPorjectOne</string>
+    <string name="title_activity_chart">ChartActivity</string>
 </resources>

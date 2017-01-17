@@ -71,6 +71,7 @@ public class BaseActivity extends AppCompatActivity {
      * @param persistentState
      */
     private static final String TAG = "BaseActivity";
+
     @Override
     public void onCreate(Bundle savedInstanceState, PersistableBundle persistentState) {
         super.onCreate(savedInstanceState, persistentState);
@@ -88,20 +89,19 @@ public class BaseActivity extends AppCompatActivity {
 
     protected boolean checkAppPermission(final String permission, final int requestCode, String message) {
         if (ContextCompat.checkSelfPermission(this, permission) != PackageManager.PERMISSION_GRANTED) {
-           /* if (ActivityCompat.shouldShowRequestPermissionRationale(this,permission)){
+            if (ActivityCompat.shouldShowRequestPermissionRationale(this, permission)) {
                 new AlertDialog.Builder(this)
                         .setMessage(message)
                         .setPositiveButton("确定", new DialogInterface.OnClickListener() {
                             @Override
                             public void onClick(DialogInterface dialog, int which) {
-                                requestPermission(permission,requestCode);
+                                requestPermission(permission, requestCode);
                             }
                         }).show();
-            }else{
+            } else {
                 //申请权限
-                requestPermission(permission,requestCode);
+                requestPermission(permission, requestCode);
             }
-*/
             return false;
         }
         return true;
@@ -110,7 +110,7 @@ public class BaseActivity extends AppCompatActivity {
     /**
      * 申请权限
      */
-    private void requestPermission(String permission,int requestCode){
+    private void requestPermission(String permission, int requestCode) {
 
         if (requestCodes == null) {
             requestCodes = new HashMap();
@@ -121,14 +121,15 @@ public class BaseActivity extends AppCompatActivity {
         //申请权限
         ActivityCompat.requestPermissions(this, new String[]{permission}, requestCode);
     }
+
     @Override
     public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
         super.onRequestPermissionsResult(requestCode, permissions, grantResults);
         if (requestCodes.containsKey(requestCode)) {
             if (grantResults[0] == PackageManager.PERMISSION_GRANTED) {
-                permissionCallback(true, requestCode,requestCodes.get(requestCode));
+                permissionCallback(true, requestCode, requestCodes.get(requestCode));
             } else {
-                permissionCallback(false, requestCode,requestCodes.get(requestCode));
+                permissionCallback(false, requestCode, requestCodes.get(requestCode));
             }
             requestCodes.remove(requestCode);
         }
@@ -140,7 +141,7 @@ public class BaseActivity extends AppCompatActivity {
      * @param successed
      * @param requestCode
      */
-    protected void permissionCallback(boolean successed, int requestCode,String permission) {
-        LogUtils.d("permission:"+permission + " requestCode:"+requestCode + " success:"+successed);
+    protected void permissionCallback(boolean successed, int requestCode, String permission) {
+        LogUtils.d("permission:" + permission + " requestCode:" + requestCode + " success:" + successed);
     }
 }

@@ -9,8 +9,13 @@ import android.graphics.RectF;
 import android.util.AttributeSet;
 import android.util.Log;
 import android.view.View;
+import android.view.animation.AccelerateDecelerateInterpolator;
+import android.view.animation.Animation;
+import android.view.animation.Transformation;
 
 import com.abe.dwwd.sporjectone.R;
+import com.abe.dwwd.sporjectone.utils.LogUtils;
+import com.orhanobut.logger.Logger;
 
 /**
  * Created by Administrator on 2017/1/13.
@@ -24,19 +29,44 @@ public class CustomHorzinonlChartView extends View {
     private int number;
     private static final String TAG = "CustomHorzinonlChartVie";
     private String leftText,rightText;
-    private Paint textPaint;
-
+    private Paint leftPaint,rightPaint;
+    private float moveTime;
     public void setNumber(int number) {
         this.number = number;
+
+        if ((number * mWidth / 100.f) > leftPaint.measureText(leftText) + mHeight / 2){
+            leftPaint.setColor(Color.WHITE);
+        }else{
+            leftPaint.setColor(Color.BLACK);
+        }
+
+        if ((number * mWidth / 100.f) > mWidth - rightPaint.measureText(rightText) - mHeight / 2){
+            rightPaint.setColor(Color.WHITE);
+        }else{
+            rightPaint.setColor(Color.BLACK);
+        }
+        invalidate();
     }
 
 
     public void setLeftText(String leftText){
         this.leftText = leftText;
+        leftPaint.setTextSize(mHeight/2);
+        if ((number * mWidth / 100.f) > leftPaint.measureText(leftText) + mHeight / 2){
+            leftPaint.setColor(Color.WHITE);
+        }else{
+            leftPaint.setColor(Color.BLACK);
+        }
+
     }
 
     public void setRightText(String rightText){
         this.rightText = rightText;
+        if ((number * mWidth / 100.f) > mWidth - rightPaint.measureText(rightText) - mHeight / 2){
+            rightPaint.setColor(Color.WHITE);
+        }else{
+            rightPaint.setColor(Color.BLACK);
+        }
     }
     public CustomHorzinonlChartView(Context context) {
         this(context, null);
@@ -57,49 +87,35 @@ public class CustomHorzinonlChartView extends View {
     private void initialize() {
         mChartPaint = new Paint();
         mChartPaint.setAntiAlias(true);
-        textPaint = new Paint();
-        textPaint.setColor(Color.BLACK);
-        textPaint.setStyle(Paint.Style.FILL);
+        leftPaint = new Paint();
+        leftPaint.setStyle(Paint.Style.FILL);
+        rightPaint = new Paint();
+        rightPaint.setStyle(Paint.Style.FILL);
 
         leftText = "左边文字";
-        rightText = "邮编文字";
-    }
-
-    @Override
-    protected void onMeasure(int widthMeasureSpec, int heightMeasureSpec) {
-        super.onMeasure(widthMeasureSpec, heightMeasureSpec);
-        Log.e(TAG, "  onMeasure()");
-        int width;
-        int height;
-        int widthSize = MeasureSpec.getSize(widthMeasureSpec);
-        int heightSize = MeasureSpec.getSize(heightMeasureSpec);
-        int widthMode = MeasureSpec.getMode(widthMeasureSpec);
-        int heightMode = MeasureSpec.getMode(widthMeasureSpec);
-        width = (widthMode == MeasureSpec.EXACTLY ? widthSize : widthSize / 2);
-        height = (heightMode == MeasureSpec.EXACTLY ? heightSize : heightSize / 2);
-        if (widthMode == MeasureSpec.EXACTLY) {
-            Log.e(TAG, " widthMode == EXACTLY  width:" + widthSize);
-        } else if (widthMode == MeasureSpec.AT_MOST) {
-            Log.e(TAG, " widthMode == AT_MOST  width:" + widthSize);
-        } else if (widthMode == MeasureSpec.UNSPECIFIED) {
-            Log.e(TAG, " widthMode == UNSPECIFIED  width:" + widthSize);
-        }
-        if (heightMode == MeasureSpec.EXACTLY) {
-            Log.e(TAG, " heightMode == EXACTLY  height:" + heightSize);
-        } else if (heightMode == MeasureSpec.AT_MOST) {
-            Log.e(TAG, " heightMode == AT_MOST  height:" + heightSize);
-        } else if (heightMode == MeasureSpec.UNSPECIFIED) {
-            Log.e(TAG, " heightMode == AT_MOST  height:" + heightSize);
-        }
-//        setMeasuredDimension(width, height);
+        rightText = "右边文字";
     }
 
     @Override
     protected void onLayout(boolean changed, int left, int top, int right, int bottom) {
         super.onLayout(changed, left, top, right, bottom);
-        Log.e(TAG, "onLayout()");
         mWidth = getWidth();
         mHeight = getHeight();
+
+        leftPaint.setTextSize(mHeight/2);
+        rightPaint.setTextSize(mHeight/2);
+
+        if ((number * mWidth / 100.f) > leftPaint.measureText(leftText) + (mHeight / 2.0)){
+            leftPaint.setColor(Color.WHITE);
+        }else{
+            leftPaint.setColor(Color.BLACK);
+        }
+
+        if ((number * mWidth / 100.f) > mWidth - rightPaint.measureText(rightText) - (mHeight / 2.0)){
+            rightPaint.setColor(Color.WHITE);
+        }else{
+            rightPaint.setColor(Color.BLACK);
+        }
     }
 
     /**
@@ -108,7 +124,8 @@ public class CustomHorzinonlChartView extends View {
     @Override
     protected void onDraw(Canvas canvas) {
         super.onDraw(canvas);
-        Log.e(TAG, "onDraw()");
+        mChartPaint.reset();
+        LogUtils.d("onDraw()");
         mChartPaint.setColor(drawColor);
         mChartPaint.setStyle(Paint.Style.FILL);
 
@@ -124,7 +141,8 @@ public class CustomHorzinonlChartView extends View {
         rectFBg.bottom = mHeight;
         rectFBg.left = 0;
         rectFBg.right = mWidth;
-        canvas.drawRoundRect(rectFBg, 40, 40, mChartPaint);
+        canvas.drawRoundRect(rectFBg, mWidth/2, mWidth/2, mChartPaint);
+
     }
 
     private void drawPlan(Canvas canvas) {
@@ -132,10 +150,10 @@ public class CustomHorzinonlChartView extends View {
         rectF.top = 0;
         rectF.bottom = mHeight;
         rectF.left = 0;
-        rectF.right = number * mWidth / 100.f;
+        rectF.right = (number * mWidth / 100.f) * moveTime;
 
         mChartPaint.setColor(drawColor);
-        canvas.drawRoundRect(rectF, 40, 40, mChartPaint);
+        canvas.drawRoundRect(rectF, mWidth/2, mWidth/2, mChartPaint);
     }
 
     /**
@@ -144,12 +162,30 @@ public class CustomHorzinonlChartView extends View {
      * float baseLineY = centerY + (fontMetrics.bottom - fontMetrics.top) / 2  - fontMetrics.bottom;
      */
     private void drawText(Canvas canvas) {
-        textPaint.setTextSize(mHeight/2);
-        canvas.drawText(leftText,mHeight/2,getBaseLineY(mHeight / 2),textPaint);
-        canvas.drawText(rightText,mWidth - textPaint.measureText(rightText)-(mHeight/2),getBaseLineY(mHeight / 2),textPaint);
+        canvas.drawText(leftText,mHeight/2,getBaseLineY(mHeight / 2),leftPaint);
+        canvas.drawText(rightText,mWidth - rightPaint.measureText(rightText)-(mHeight/2),getBaseLineY(mHeight / 2),rightPaint);
     }
 
     private float getBaseLineY(float centerY){
-        return centerY + (textPaint.getFontMetrics().bottom - textPaint.getFontMetrics().top) / 2 - textPaint.getFontMetrics().bottom;
+        return centerY + (rightPaint.getFontMetrics().bottom - rightPaint.getFontMetrics().top) / 2 - rightPaint.getFontMetrics().bottom;
+    }
+
+    class MoveAnimation extends Animation{
+        @Override
+        protected void applyTransformation(float interpolatedTime, Transformation t) {
+            super.applyTransformation(interpolatedTime, t);
+            moveTime = interpolatedTime;
+            invalidate();
+        }
+    }
+
+    public void startAnimation(){
+        mChartPaint.reset();
+        moveTime = 0;
+
+        MoveAnimation moveAnimation = new MoveAnimation();
+        moveAnimation.setDuration(1000);
+        moveAnimation.setInterpolator(new AccelerateDecelerateInterpolator());
+        startAnimation(moveAnimation);
     }
 }

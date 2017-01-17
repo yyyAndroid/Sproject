@@ -25,8 +25,9 @@ dependencies {
         exclude group: 'com.android.support', module: 'support-annotations'
     })
     compile 'com.orhanobut:logger:+'
-    compile 'com.android.support:appcompat-v7:25.0.1'
+    compile 'com.android.support:appcompat-v7:25.1.0'
     compile 'com.squareup.okhttp:okhttp:+'
     compile 'com.squareup.okio:okio:+'
+    compile 'com.android.support:design:25.1.0'
     testCompile 'junit:junit:4.12'
 }

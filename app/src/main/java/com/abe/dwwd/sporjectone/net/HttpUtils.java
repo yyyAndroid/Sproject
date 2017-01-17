@@ -23,7 +23,7 @@ public class HttpUtils{
     //new call
      Call call = mOkHttpClient.newCall(request);
     //请求加入调度
-
+    private static final String TAG = "HttpUtils";
     public void getRequest(){
         call.enqueue(new Callback() {
             @Override

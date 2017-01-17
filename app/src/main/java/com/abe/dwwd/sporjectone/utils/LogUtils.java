@@ -8,6 +8,14 @@ import com.orhanobut.logger.Logger;
 
 public class LogUtils {
 
+    public static void init(String tag){
+        Logger.init(tag);
+    }
+    /**
+     * 格式化输出
+     * @param tag
+     * @param info
+     */
     public static void d(String tag,Object... info){
         Logger.d(tag,info);
     }

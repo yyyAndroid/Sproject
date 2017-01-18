@@ -1,4 +1,4 @@
-package com.abe.dwwd.sporjectone.ui;
+package com.abe.dwwd.sporjectone.ui.activity;
 
 import android.content.DialogInterface;
 import android.content.pm.PackageManager;

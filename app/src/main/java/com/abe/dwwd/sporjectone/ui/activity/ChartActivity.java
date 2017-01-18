@@ -1,10 +1,10 @@
-package com.abe.dwwd.sporjectone.ui;
+package com.abe.dwwd.sporjectone.ui.activity;
 
 import android.os.Bundle;
 import android.view.View;
 
 import com.abe.dwwd.sporjectone.R;
-import com.abe.dwwd.sporjectone.view.CustomHorzinonlChartView;
+import com.abe.dwwd.sporjectone.CustomView.CustomHorzinonlChartView;
 
 public class ChartActivity extends BaseActivity {
     CustomHorzinonlChartView customHorzinonlChartView;
@@ -23,7 +23,9 @@ public class ChartActivity extends BaseActivity {
     }
 
     public void clickBt(View view){
-        customHorzinonlChartView.setNumber(90);
+        customHorzinonlChartView.setLeftText("完成60%");
+        customHorzinonlChartView.setRightText("未完成40%");
+        customHorzinonlChartView.setNumber(60);
         customHorzinonlChartView.startAnimation();
     }
 }

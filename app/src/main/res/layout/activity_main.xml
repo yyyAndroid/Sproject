@@ -11,4 +11,14 @@
         android:text="显示百分比进度条"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content" />
+    <Button
+        android:onClick="clickOkHttp"
+        android:text="OkHttp使用"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+    <Button
+        android:onClick="clickViewpage"
+        android:text="viewpage"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
 </LinearLayout>

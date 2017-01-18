@@ -1,4 +1,4 @@
-package com.abe.dwwd.sporjectone.view;
+package com.abe.dwwd.sporjectone.CustomView;
 
 import android.content.Context;
 import android.content.res.TypedArray;

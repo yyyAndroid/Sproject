@@ -9,11 +9,11 @@
     android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
-    tools:context="com.abe.dwwd.sporjectone.ui.ChartActivity">
+    tools:context="com.abe.dwwd.sporjectone.ui.activity.ChartActivity">
 
-    <com.abe.dwwd.sporjectone.view.CustomHorzinonlChartView
-        android:layout_width="match_parent"
-        android:layout_height="30dp"
+    <com.abe.dwwd.sporjectone.CustomView.CustomHorzinonlChartView
+        android:layout_width="290dp"
+        android:layout_height="20dp"
         android:layout_alignParentTop="true"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"

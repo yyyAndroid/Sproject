@@ -6,6 +6,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context="com.abe.dwwd.sporjectone.ui.activity.ViewPageActivity">
+    <!-- clipChildren:意思是 是否限制子view在其范围内  默认为true-->
 <android.support.v4.view.ViewPager
     android:id="@+id/viewpage"
     android:layout_centerHorizontal="true"

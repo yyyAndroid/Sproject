@@ -32,7 +32,7 @@ public class ViewPageActivity extends BaseActivity {
     private void initViewPage(){
 
        int pagerWidth = (int) (getResources().getDisplayMetrics().widthPixels * 6.5f / 10.0f);
-//        viewPager.measure(0, 0);
+        viewPager.measure(0, 0);
         ViewGroup.LayoutParams lp = viewPager.getLayoutParams();
         if (lp == null) {
             lp = new ViewGroup.LayoutParams(pagerWidth, LinearLayout.LayoutParams.WRAP_CONTENT);
@@ -41,8 +41,8 @@ public class ViewPageActivity extends BaseActivity {
         }
         viewPager.setLayoutParams(lp);
         viewPager.setPageMargin(10);
-//        viewPager.setOffscreenPageLimit(4);
-//      viewPager.setPageTransformer(true, new ZoomOutPageTransformer());
+        viewPager.setOffscreenPageLimit(4);
+      viewPager.setPageTransformer(true, new ZoomOutPageTransformer());
 
 
 

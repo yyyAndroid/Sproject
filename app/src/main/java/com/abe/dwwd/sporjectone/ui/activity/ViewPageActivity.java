@@ -31,7 +31,7 @@ public class ViewPageActivity extends BaseActivity {
 
     private void initViewPage(){
 
-       int pagerWidth = (int) (getResources().getDisplayMetrics().widthPixels * 6.5f / 10.0f);
+       int pagerWidth = (int) (getResources().getDisplayMetrics().widthPixels * 7.5f / 10.0f);
         viewPager.measure(0, 0);
         ViewGroup.LayoutParams lp = viewPager.getLayoutParams();
         if (lp == null) {

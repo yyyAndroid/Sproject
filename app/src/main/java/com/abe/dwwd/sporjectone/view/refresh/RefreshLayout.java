@@ -7,7 +7,6 @@ import android.support.v4.view.ViewPropertyAnimatorCompat;
 import android.support.v4.view.ViewPropertyAnimatorUpdateListener;
 import android.support.v7.widget.RecyclerView;
 import android.util.AttributeSet;
-import android.util.Log;
 import android.view.Gravity;
 import android.view.MotionEvent;
 import android.view.View;
@@ -19,7 +18,6 @@ import android.widget.FrameLayout;
 import android.widget.ScrollView;
 
 import com.abe.dwwd.sporjectone.utils.LogUtils;
-import com.orhanobut.logger.Logger;
 
 public class RefreshLayout extends FrameLayout {
 

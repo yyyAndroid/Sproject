@@ -3,4 +3,11 @@
     <declare-styleable name="CustomCharView">
         <attr name="drawColor" format="color"/>
     </declare-styleable>
+    
+    <declare-styleable name="MoveRecorderView">
+        <attr name="swidth" format="integer"/>
+        <attr name="sheight" format="integer"/>
+        <attr name="is_open_camera" format="boolean"/>
+        <attr name="record_max_time" format="integer"/>
+    </declare-styleable>
 </resources>

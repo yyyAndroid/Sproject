@@ -5,7 +5,9 @@ import android.os.Bundle;
 import android.view.View;
 import com.abe.dwwd.sporjectone.ui.activity.BaseActivity;
 import com.abe.dwwd.sporjectone.ui.activity.ChartActivity;
+import com.abe.dwwd.sporjectone.ui.activity.MoveActivity;
 import com.abe.dwwd.sporjectone.ui.activity.OkHttpActivity;
+import com.abe.dwwd.sporjectone.ui.activity.PullToRefreshActivity;
 import com.abe.dwwd.sporjectone.ui.activity.ViewPageActivity;
 
 public class MainActivity extends BaseActivity {
@@ -27,5 +29,13 @@ public class MainActivity extends BaseActivity {
 
     public void clickViewpage(View view){
         startActivity(new Intent(this, ViewPageActivity.class));
+    }
+
+    public void clickMove(View view){
+        startActivity(new Intent(this, MoveActivity.class));
+    }
+
+    public void clickRefresh(View view){
+        startActivity(new Intent(this, PullToRefreshActivity.class));
     }
 }

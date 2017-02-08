@@ -24,6 +24,8 @@ dependencies {
     androidTestCompile('com.android.support.test.espresso:espresso-core:2.2.2', {
         exclude group: 'com.android.support', module: 'support-annotations'
     })
+    // View注入框架
+    compile 'com.jakewharton:butterknife:+'
     compile 'com.orhanobut:logger:+'
     compile 'com.android.support:appcompat-v7:25.1.0'
     compile 'com.squareup.okhttp:okhttp:+'

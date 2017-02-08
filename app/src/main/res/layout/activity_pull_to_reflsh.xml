@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/activity_pull_to_reflsh"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.abe.dwwd.sporjectone.ui.activity.PullToRefreshActivity">
+    <com.abe.dwwd.sporjectone.view.refresh.RefreshLayout
+        android:id="@+id/refresh_layout"
+        android:layout_height="match_parent"
+        android:layout_width="match_parent">
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <LinearLayout
+                android:orientation="vertical"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content">
+                <TextView
+                    android:id="@+id/text"
+                    android:text="dflsjdlfdsssssssss\ndfdfdfdf"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content" />
+
+                <TextView
+                    android:text="dflsjdlfdsssssssss\ndfdfdfdf"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content" />
+                <TextView
+                    android:text="dflsjdlfdsssssssss\ndfdfdfdf"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content" />
+                <TextView
+                    android:text="dflsjdlfdsssssssss\ndfdfdfdf"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content" />
+                <TextView
+                    android:text="dflsjdlfdsssssssss\ndfdfdfdf"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content" />
+                <TextView
+                    android:text="dflsjdlfdsssssssss\ndfdfdfdf"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content" />
+                <TextView
+                    android:text="dflsjdlfdsssssssss\ndfdfdfdf"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content" />
+                <TextView
+                    android:text="dflsjdlfdsssssssss\ndfdfdfdf"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content" />
+                <TextView
+                    android:text="dflsjdlfdsssssssss\ndfdfdfdf"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content" />
+                <TextView
+                    android:text="dflsjdlfdsssssssss\ndfdfdfdf"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content" />
+                <TextView
+                    android:text="dflsjdlfdsssssssss\ndfdfdfdf"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content" />
+                <TextView
+                    android:text="dflsjdlfdsssssssss\ndfdfdfdf"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content" />
+
+
+            </LinearLayout>
+        </ScrollView>
+
+    </com.abe.dwwd.sporjectone.view.refresh.RefreshLayout>
+
+</RelativeLayout>

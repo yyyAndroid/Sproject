@@ -21,4 +21,14 @@
         android:text="viewpage"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content" />
+    <Button
+        android:onClick="clickMove"
+        android:text="短视频录制"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+    <Button
+        android:onClick="clickRefresh"
+        android:text="下拉刷新"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
 </LinearLayout>

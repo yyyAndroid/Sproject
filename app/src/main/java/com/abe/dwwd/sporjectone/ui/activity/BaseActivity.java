@@ -18,6 +18,8 @@ import com.abe.dwwd.sporjectone.utils.LogUtils;
 import java.util.HashMap;
 import java.util.Map;
 
+import butterknife.ButterKnife;
+
 /**
  * Created by Administrator on 2017/1/16.
  */
@@ -80,6 +82,12 @@ public class BaseActivity extends AppCompatActivity {
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        ButterKnife.bind(this);
+    }
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
     }
 
     /**

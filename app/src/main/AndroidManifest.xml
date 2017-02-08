@@ -6,6 +6,19 @@
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.CAMERA" />
 
+    <!-- 视频录制的权限star -->
+    <!-- 摄像头 -->
+    <uses-permission android:name="android.permission.CAMERA" />
+    <!-- 音频即声音 -->
+    <uses-permission android:name="android.permission.RECORD_AUDIO" />
+    <!-- sd卡写入权限 -->
+    <uses-permission android:name="android.permission.MOUNT_UNMOUNT_FILESYSTEMS" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <!-- 硬件支持 -->
+    <uses-feature android:name="android.hardware.camera" />
+    <uses-feature android:name="android.hardware.camera.autofocus" />
+
+    <!-- 视频录制的权限end -->
     <application
         android:allowBackup="true"
         android:hardwareAccelerated="false"
@@ -22,7 +35,9 @@
         </activity>
         <activity android:name=".ui.activity.ChartActivity" />
         <activity android:name=".ui.activity.OkHttpActivity" />
-        <activity android:name=".ui.activity.ViewPageActivity"></activity>
+        <activity android:name=".ui.activity.ViewPageActivity" />
+        <activity android:name=".ui.activity.MoveActivity" />
+        <activity android:name=".ui.activity.PullToRefreshActivity"></activity>
     </application>
 
 </manifest>

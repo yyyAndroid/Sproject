@@ -5,67 +5,111 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context="com.abe.dwwd.sporjectone.ui.activity.PullToRefreshActivity">
+
     <com.abe.dwwd.sporjectone.view.refresh.RefreshLayout
         android:id="@+id/refresh_layout"
-        android:layout_height="match_parent"
-        android:layout_width="match_parent">
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
         <ScrollView
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
+
             <LinearLayout
-                android:orientation="vertical"
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content">
-                <TextView
-                    android:id="@+id/text"
-                    android:text="dflsjdlfdsssssssss\ndfdfdfdf"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content" />
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
 
                 <TextView
-                    android:text="dflsjdlfdsssssssss\ndfdfdfdf"
+                    android:id="@+id/text"
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content" />
+                    android:layout_height="wrap_content"
+                    android:text="dflsjdlfdsssssssss\ndfdfdfdf" />
+
                 <TextView
-                    android:text="dflsjdlfdsssssssss\ndfdfdfdf"
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content" />
+                    android:layout_height="wrap_content"
+                    android:text="dflsjdlfdsssssssss\ndfdfdfdf" />
+
                 <TextView
-                    android:text="dflsjdlfdsssssssss\ndfdfdfdf"
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content" />
+                    android:layout_height="wrap_content"
+                    android:text="dflsjdlfdsssssssss\ndfdfdfdf" />
+
                 <TextView
-                    android:text="dflsjdlfdsssssssss\ndfdfdfdf"
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content" />
+                    android:layout_height="wrap_content"
+                    android:text="dflsjdlfdsssssssss\ndfdfdfdf" />
+
                 <TextView
-                    android:text="dflsjdlfdsssssssss\ndfdfdfdf"
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content" />
+                    android:layout_height="wrap_content"
+                    android:text="dflsjdlfdsssssssss\ndfdfdfdf" />
+
                 <TextView
-                    android:text="dflsjdlfdsssssssss\ndfdfdfdf"
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content" />
+                    android:layout_height="wrap_content"
+                    android:text="dflsjdlfdsssssssss\ndfdfdfdf" />
+
                 <TextView
-                    android:text="dflsjdlfdsssssssss\ndfdfdfdf"
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content" />
+                    android:layout_height="wrap_content"
+                    android:text="dflsjdlfdsssssssss\ndfdfdfdf" />
+
                 <TextView
-                    android:text="dflsjdlfdsssssssss\ndfdfdfdf"
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content" />
+                    android:layout_height="wrap_content"
+                    android:text="dflsjdlfdsssssssss\ndfdfdfdf" />
+
                 <TextView
-                    android:text="dflsjdlfdsssssssss\ndfdfdfdf"
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content" />
+                    android:layout_height="wrap_content"
+                    android:text="dflsjdlfdsssssssss\ndfdfdfdf" />
+
                 <TextView
-                    android:text="dflsjdlfdsssssssss\ndfdfdfdf"
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content" />
+                    android:layout_height="wrap_content"
+                    android:text="dflsjdlfdsssssssss\ndfdfdfdf" />
+
                 <TextView
-                    android:text="dflsjdlfdsssssssss\ndfdfdfdf"
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content" />
+                    android:layout_height="wrap_content"
+                    android:text="dflsjdlfdsssssssss\ndfdfdfdf" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="dflsjdlfdsssssssss\ndfdfdfdf" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="dflsjdlfdsssssssss\ndfdfdfdf" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="dflsjdlfdsssssssss\ndfdfdfdf" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="dflsjdlfdsssssssss\ndfdfdfdf" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="dflsjdlfdsssssssss\ndfdfdfdf" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="dflsjdlfdsssssssss\ndfdfdfdf" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="dflsjdlfdsssssssss\ndfdfdfdf" />
 
 
             </LinearLayout>

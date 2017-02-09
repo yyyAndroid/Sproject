@@ -21,7 +21,7 @@ import com.abe.dwwd.sporjectone.utils.LogUtils;
 
 public class RefreshLayout extends FrameLayout {
 
-    private static final float OFFSET_RADIO = 1.2f;
+    private static final float OFFSET_RADIO = 1.6f;
 
     private View mChildView;//子控件
     private View mScrollableView;//
@@ -52,7 +52,11 @@ public class RefreshLayout extends FrameLayout {
         mHeaderView = new DefaultRefreshHeaderView(getContext());
 
         mTouchSlop = ViewConfiguration.get(context).getScaledTouchSlop();
-        LogUtils.e("yyy "+mTouchSlop);
+        /**
+         *
+         getScaledTouchSlop是一个距离，表示滑动的时候，手的移动要大于这个距离才开始移动控件。如果小于这个距离就不触发移动控件，如viewpager
+         就是用这个距离来判断用户是否翻页
+         */
     }
 
     /**
@@ -89,8 +93,8 @@ public class RefreshLayout extends FrameLayout {
     private void initHeaderView() {
         // 初始化配置
         HeaderConfig headerConfig = mHeaderView.getConfig();
-        mIsOverlay = headerConfig.isOverlay;
-        mMaxOffset = headerConfig.maxOffset;
+        mIsOverlay = headerConfig.isOverlay;//是否
+        mMaxOffset = headerConfig.maxOffset;//headerView的华东最大高度
         // 提前测量刷新视图的宽高
         measureView(mHeaderView);
         int height = mHeaderView.getMeasuredHeight();
@@ -159,14 +163,14 @@ public class RefreshLayout extends FrameLayout {
 
     @Override
     public boolean onInterceptTouchEvent(MotionEvent ev) {
+
         switch (ev.getAction()) {
             case MotionEvent.ACTION_DOWN:
                 mTouchY = ev.getY();
-                LogUtils.e("yyy"+mTouchY);
                 break;
             case MotionEvent.ACTION_MOVE:
                 float dy = ev.getY() - mTouchY;
-                if (!mIsRefreshing && dy > mTouchSlop && !canChildScrollUp()) {//没有正在刷新&&
+                if (!mIsRefreshing && dy > mTouchSlop && !canChildScrollUp()) {//没有正在刷新&&在可触摸范围内&&是否到达顶部
                     boolean enablePull = false;
                     if (mOnRefreshListener != null) {
                         enablePull = mOnRefreshListener.enableRefresh();//对触摸时间进行拦截
@@ -198,7 +202,11 @@ public class RefreshLayout extends FrameLayout {
                 return ViewCompat.canScrollVertically(mScrollableView, -1) || mScrollableView.getScrollY() > 0;
             }
         } else {
-            return ViewCompat.canScrollVertically(mScrollableView, -1);
+            /**
+             * 判断控件是否能在垂直向上方向滑动，target是对象，-1是向上的意思。
+             * Negative to check scrolling up, positive to check scrolling down
+             */
+            return ViewCompat.canScrollVertically(mScrollableView, -1) ;
         }
     }
 
@@ -231,8 +239,11 @@ public class RefreshLayout extends FrameLayout {
                 }
                 return true;
             case MotionEvent.ACTION_CANCEL:
-            case MotionEvent.ACTION_UP:
-                if (mIsOverlay) {
+            case MotionEvent.ACTION_UP://触摸抬起
+                if (mIsOverlay) {//是否为覆盖模式
+                    /**
+                     * ViewCompat.getTranslationY()：相对于View.getTop()的位置
+                     */
                     if (ViewCompat.getTranslationY(mHeaderView) >= 0) {
                         viewAnimateTranslationY(mHeaderView, 0);
                         startRefresh();
@@ -263,7 +274,7 @@ public class RefreshLayout extends FrameLayout {
      */
     private void viewAnimateTranslationY(final View v, final float y) {
         ViewPropertyAnimatorCompat viewPropertyAnimatorCompat = ViewCompat.animate(v);
-        viewPropertyAnimatorCompat.setDuration(250);
+        viewPropertyAnimatorCompat.setDuration(650);
         viewPropertyAnimatorCompat.setInterpolator(new DecelerateInterpolator());
         viewPropertyAnimatorCompat.translationY(y);
         viewPropertyAnimatorCompat.start();
@@ -276,7 +287,7 @@ public class RefreshLayout extends FrameLayout {
      */
     private void viewAnimateTranslationY(final View v, final float y, final View childView) {
         ViewPropertyAnimatorCompat viewPropertyAnimatorCompat = ViewCompat.animate(v);
-        viewPropertyAnimatorCompat.setDuration(250);
+        viewPropertyAnimatorCompat.setDuration(650);
         viewPropertyAnimatorCompat.setInterpolator(new DecelerateInterpolator());
         viewPropertyAnimatorCompat.translationY(y);
         viewPropertyAnimatorCompat.start();
@@ -311,7 +322,7 @@ public class RefreshLayout extends FrameLayout {
     }
 
     /**
-     * 设置是否是刷新状态
+     * 设置刷新状态
      * @param refreshing
      */
     public void setRefreshing(boolean refreshing) {
@@ -319,14 +330,14 @@ public class RefreshLayout extends FrameLayout {
             return;
         }
         mIsRefreshing = refreshing;
-        if (refreshing) {
+        if (refreshing) {//正在刷新
             if (mIsOverlay) {
                 viewAnimateTranslationY(mHeaderView, 0);
             } else {
                 viewAnimateTranslationY(mHeaderView, 0, mChildView);
             }
             mHeaderView.onRefreshing();
-        } else {
+        } else {//没有刷新
             if (mIsOverlay) {
                 viewAnimateTranslationY(mHeaderView, -mHeaderHeight);
             } else {

@@ -12,6 +12,7 @@ import android.widget.ImageView;
 
 
 import com.abe.dwwd.sporjectone.R;
+import com.abe.dwwd.sporjectone.utils.LogUtils;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -122,9 +123,11 @@ public class DefaultRefreshHeaderView extends BaseRefreshHeaderView {
         return config;
     }
 
+    /**
+     * 开始向下滑动的毁掉
+     */
     @Override
     public void onBegin() {
-
     }
 
     @Override

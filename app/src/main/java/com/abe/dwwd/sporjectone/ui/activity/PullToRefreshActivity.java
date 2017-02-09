@@ -14,11 +14,7 @@ import butterknife.BindView;
 
 public class PullToRefreshActivity extends BaseActivity {
 
-    @BindView(R.id.refresh_layout)
     RefreshLayout refreshLayout;
-
-    @BindView(R.id.text)
-    TextView textView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

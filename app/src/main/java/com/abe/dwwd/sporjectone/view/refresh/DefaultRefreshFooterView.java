@@ -48,6 +48,9 @@ public class DefaultRefreshFooterView extends BaseRefreshFooterView {
         textView.setText("加载中");
     }
 
+    /**
+     * 完成
+     */
     @Override
     public void onComplete() {
         // nothing to do

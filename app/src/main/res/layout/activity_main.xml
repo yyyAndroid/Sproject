@@ -7,6 +7,7 @@
     android:orientation="vertical"
     tools:context="com.abe.dwwd.sporjectone.MainActivity">
     <Button
+        android:id="@+id/bt_chart"
         android:onClick="clickChart"
         android:text="显示百分比进度条"
         android:layout_width="wrap_content"

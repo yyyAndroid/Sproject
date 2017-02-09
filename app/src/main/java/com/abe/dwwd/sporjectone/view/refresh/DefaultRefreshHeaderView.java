@@ -20,6 +20,10 @@ import butterknife.Unbinder;
 /**
  * 默认的头部下拉刷新view
  */
+
+/**
+ * 头部的下拉刷新动画
+ */
 public class DefaultRefreshHeaderView extends BaseRefreshHeaderView {
     ImageView sunImg;
 
@@ -54,6 +58,7 @@ public class DefaultRefreshHeaderView extends BaseRefreshHeaderView {
     }
 
     private void initAnimations() {
+        //太阳旋转动画
         sunRotation = new RotateAnimation(0, 179,
                 Animation.RELATIVE_TO_SELF, 0.5f,
                 Animation.RELATIVE_TO_SELF, 0.5f);
@@ -61,12 +66,14 @@ public class DefaultRefreshHeaderView extends BaseRefreshHeaderView {
         sunRotation.setRepeatCount(Animation.INFINITE);
         sunRotation.setDuration(600);
 
+        //起手上下移动动画
         riderShake = new TranslateAnimation(0, 0, 0, 5);
         riderShake.setRepeatMode(Animation.REVERSE);
         riderShake.setRepeatCount(Animation.INFINITE);
         riderShake.setInterpolator(new DecelerateInterpolator());
         riderShake.setDuration(225);
 
+        //车轮转动动画
         wheelRotation = new RotateAnimation(0, 359,
                 Animation.RELATIVE_TO_SELF, 0.5f,
                 Animation.RELATIVE_TO_SELF, 0.5f);
@@ -74,6 +81,7 @@ public class DefaultRefreshHeaderView extends BaseRefreshHeaderView {
         wheelRotation.setRepeatCount(Animation.INFINITE);
         wheelRotation.setDuration(300);
 
+        //左边背景移动动画
         leftBackTranslate = new TranslateAnimation(Animation.RELATIVE_TO_SELF, 0,
                 Animation.RELATIVE_TO_SELF, -1,
                 Animation.RELATIVE_TO_SELF, 0,
@@ -83,6 +91,7 @@ public class DefaultRefreshHeaderView extends BaseRefreshHeaderView {
         leftBackTranslate.setInterpolator(new LinearInterpolator());
         leftBackTranslate.setDuration(2000);
 
+        //右边背景移动动画
         rightBackTranslate = new TranslateAnimation(Animation.RELATIVE_TO_SELF, 1,
                 Animation.RELATIVE_TO_SELF, 0,
                 Animation.RELATIVE_TO_SELF, 0,
@@ -129,7 +138,7 @@ public class DefaultRefreshHeaderView extends BaseRefreshHeaderView {
     }
 
     @Override
-    public void onRefreshing() {
+    public void onRefreshing() {//刷新中
         sunImg.startAnimation(sunRotation);
         riderImg.startAnimation(riderShake);
         leftWheelImg.startAnimation(wheelRotation);
@@ -139,7 +148,7 @@ public class DefaultRefreshHeaderView extends BaseRefreshHeaderView {
     }
 
     @Override
-    public void onComplete() {
+    public void onComplete() {//刷新完成
         sunImg.clearAnimation();
         riderImg.clearAnimation();
         leftWheelImg.clearAnimation();

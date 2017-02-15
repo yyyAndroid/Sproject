@@ -21,7 +21,7 @@ import com.abe.dwwd.sporjectone.utils.LogUtils;
 
 public class RefreshLayout extends FrameLayout {
 
-    private static final float OFFSET_RADIO = 1.6f;
+    private static final float OFFSET_RADIO = 1.8f;
 
     private View mChildView;//子控件
     private View mScrollableView;//
@@ -274,7 +274,7 @@ public class RefreshLayout extends FrameLayout {
      */
     private void viewAnimateTranslationY(final View v, final float y) {
         ViewPropertyAnimatorCompat viewPropertyAnimatorCompat = ViewCompat.animate(v);
-        viewPropertyAnimatorCompat.setDuration(650);
+        viewPropertyAnimatorCompat.setDuration(850);
         viewPropertyAnimatorCompat.setInterpolator(new DecelerateInterpolator());
         viewPropertyAnimatorCompat.translationY(y);
         viewPropertyAnimatorCompat.start();
@@ -287,7 +287,7 @@ public class RefreshLayout extends FrameLayout {
      */
     private void viewAnimateTranslationY(final View v, final float y, final View childView) {
         ViewPropertyAnimatorCompat viewPropertyAnimatorCompat = ViewCompat.animate(v);
-        viewPropertyAnimatorCompat.setDuration(650);
+        viewPropertyAnimatorCompat.setDuration(850);
         viewPropertyAnimatorCompat.setInterpolator(new DecelerateInterpolator());
         viewPropertyAnimatorCompat.translationY(y);
         viewPropertyAnimatorCompat.start();

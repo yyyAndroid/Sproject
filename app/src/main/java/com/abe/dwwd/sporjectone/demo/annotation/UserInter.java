@@ -48,7 +48,7 @@ public class UserInter {
      * StyleRes  style资源
      * StyleableRes   Styleable资源类型
      * TransitionRes   transition资源类型
-     *
+     * XmlRes   xml资源
      */
 
     @IntDef({childe,man,girl})

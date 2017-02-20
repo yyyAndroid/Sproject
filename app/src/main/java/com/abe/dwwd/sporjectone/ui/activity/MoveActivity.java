@@ -102,7 +102,6 @@ public class MoveActivity extends AppCompatActivity {
     //视频录制结束后，跳转的函数
     private void finishActivity() {
         if (isFinish) {
-
             Toast.makeText(this, "录制成功", Toast.LENGTH_SHORT).show();
            /* mRecorderView.stop();
             Intent intent = new Intent(this, SuccessActivity.class);

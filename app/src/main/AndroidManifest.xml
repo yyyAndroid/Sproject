@@ -37,7 +37,8 @@
         <activity android:name=".ui.activity.OkHttpActivity" />
         <activity android:name=".ui.activity.ViewPageActivity" />
         <activity android:name=".ui.activity.MoveActivity" />
-        <activity android:name=".ui.activity.PullToRefreshActivity"></activity>
+        <activity android:name=".ui.activity.PullToRefreshActivity" />
+        <activity android:name=".rxjava.RxJavaActivity"></activity>
     </application>
 
 </manifest>

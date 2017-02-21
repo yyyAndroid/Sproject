@@ -166,7 +166,25 @@ public class RxJavaActivity extends AppCompatActivity {
             }
         });
     }
-
+/**
+ * 3.线程控制 -- Scheduler (一)
+ * 在不指定线程的情况下，RxJava遵循的是线程不变原则，既：在哪一个线程调用Subscriber()，就在哪个线程生产事件；在哪个线程消费事件。如果需要切换线程，
+ * 就系要用到Scheduler(调度器)
+ *
+ *   1).Schedule的API（一）
+ *   在RxJava中，Scheduler -- 调度器，相当于相当于线程控制器，RxJava通过它来指定每一段代码应该运行在什么样的线程。RxJava已经内置了
+ *   几个Scheduler,它们已近适合大多数的使用场景：
+ *
+ *      1.Schedulers.immediate():直接在当前线程运行，相当于不指定线程。这是模式的Scheduler
+ *      2.Schedulers.newThread():总是启用新线程，并在新县城执行操作
+ *      3.Schedulers.io():I/O操作（读写文件、读写数据库、网络信息交互等）所使用的Scheduler。行为模式和newThread（）差不多，
+ *      区别在于io（）的内部实现的是一个无数量限制的线程池，可以重用空闲的线程，因此多数情况下io()比newThread（）更有效。
+ *      不要把计算工作放在io（）中，可以避免创建不必要的线程。
+ *      4.Schedulers.computation():计算所使用的Scheduler。这个计算值得是CPU密集型计算，既不会被i/o等操作限制性能的操作，例如图形计算
+ *      。这个Scheduler使用的固定的线程池，大小为CPU核数。不要把i/o操作放在computation（）中，否则i/o操作的等待会时间会浪费CPU资源
+ *      5.另外，Android还有一个专用的AndroidSchedulers.mainThread(),它指定的操作将在Android主线程中运行。
+ *
+ */
 
 
 }

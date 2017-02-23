@@ -21,3 +21,6 @@
 
 </com.abe.dwwd.sporjectone.view.refresh.RefreshLayout>
 ```
+
+####签到dialog
+<img src="https://github.com/yyyAndroid/Sproject/blob/master/gif/GIF4.gif" width = "320" height = "640" align=center />

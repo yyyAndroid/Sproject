@@ -13,6 +13,7 @@ import com.abe.dwwd.sporjectone.ui.activity.MoveActivity;
 import com.abe.dwwd.sporjectone.ui.activity.OkHttpActivity;
 import com.abe.dwwd.sporjectone.ui.activity.PullToRefreshActivity;
 import com.abe.dwwd.sporjectone.ui.activity.ViewPageActivity;
+import com.abe.dwwd.sporjectone.view.SignInDialog;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -48,5 +49,10 @@ public class MainActivity extends BaseActivity {
 
     public void clickRefresh(View view){
         startActivity(new Intent(this, PullToRefreshActivity.class));
+    }
+
+    public void clickSignDialog(View view){
+        SignInDialog signInDialog = new SignInDialog(this,null);
+        signInDialog.show();
     }
 }

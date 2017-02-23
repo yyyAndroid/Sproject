@@ -32,4 +32,10 @@
         android:text="下拉刷新"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content" />
+    <Button
+        android:onClick="clickSignDialog"
+        android:text="签到dialog"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+
 </LinearLayout>

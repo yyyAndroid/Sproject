@@ -7,6 +7,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.Toast;
 
+import com.abe.dwwd.sporjectone.rxjava.RxJavaSecondActivity;
 import com.abe.dwwd.sporjectone.ui.activity.BaseActivity;
 import com.abe.dwwd.sporjectone.ui.activity.ChartActivity;
 import com.abe.dwwd.sporjectone.ui.activity.MoveActivity;
@@ -54,5 +55,8 @@ public class MainActivity extends BaseActivity {
     public void clickSignDialog(View view){
         SignInDialog signInDialog = new SignInDialog(this,null);
         signInDialog.show();
+    }
+    public void clickRx(View view){
+        startActivity(new Intent(this, RxJavaSecondActivity.class));
     }
 }

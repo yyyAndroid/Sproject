@@ -156,7 +156,7 @@ public class RxJavaActivity extends AppCompatActivity {
 
     }
 
-//简单的RxJava例子
+    //简单的RxJava例子
     public void clickBt(View view){
         String[] names = new String[]{"",""};
         Observable.from(names).subscribe(new Action1<String>() {

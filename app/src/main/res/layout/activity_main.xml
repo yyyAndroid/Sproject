@@ -39,7 +39,13 @@
         android:layout_height="wrap_content" />
     <Button
         android:onClick="clickRx"
-        android:text="RxJava"
+        android:text="rxjava 基础"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+
+    <Button
+        android:onClick="clickRxVary"
+        android:text="rxjava 变换"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content" />
 

@@ -197,4 +197,14 @@ public class RxJavaSecondActivity extends AppCompatActivity {
                 })
                 .subscribe(subscriber);
     }
+    /*
+    从上面代码看出，flatMap()和map()有一个相同点:它是吧传入的参数转化之后返回另一个对象。
+    但是要注意的，和map()不同的是，flatMap()中返回的诗歌Observable对象，并且这个Observable
+    对象并不是被直接发送到了Subscriber的回调方法中。flatMap()的原理是这样的：1.使用传入的时间对象
+    创建一个Observable对象；2.并不发送这个Observable，而是将它激活，于是它开始发送事件；
+    3.每个创建出来的Observable发送的时间，都被融入同一个Observable，而这个Observable
+    负责将这些时间统一交给Subscriber的毁掉方法。这个三个步骤，把时间拆分成了两级，通过一组新创建的
+    Observable将初始的对象 平铺之后通过统一路径分发了下去。而这个平铺就是flatMap()所谓flat.
+
+     */
 }

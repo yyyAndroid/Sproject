@@ -13,6 +13,8 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.abe.dwwd.sporjectone.R;
+import com.abe.dwwd.sporjectone.bean.Course;
+import com.abe.dwwd.sporjectone.bean.Student;
 import com.google.android.gms.appindexing.Action;
 import com.google.android.gms.appindexing.AppIndex;
 import com.google.android.gms.appindexing.Thing;
@@ -25,6 +27,7 @@ import rx.Observer;
 import rx.Subscriber;
 import rx.android.schedulers.AndroidSchedulers;
 import rx.functions.Action1;
+import rx.functions.Func1;
 import rx.schedulers.Schedulers;
 
 public class RxJavaSecondActivity extends AppCompatActivity {
@@ -134,5 +137,37 @@ public class RxJavaSecondActivity extends AppCompatActivity {
                         imageView.setImageDrawable(drawable);
                     }
                 });
+    }
+
+
+    /**
+     *
+     */
+    public void clickFlatMapOne(){
+        Student[] students = new Student[]{new Student(),new Student()};
+        Subscriber<Course> subscriber = new Subscriber<Course>() {
+            @Override
+            public void onCompleted() {
+
+            }
+
+            @Override
+            public void onError(Throwable e) {
+
+            }
+
+            @Override
+            public void onNext(Course course) {
+                Log.d(TAG,course.getEnglish()+"");
+            }
+        };
+        Observable.from(students)
+                .flatMap(new Func1<Student, Observable<Course>>() {
+                    @Override
+                    public Observable<Course> call(Student student) {
+                        return Observable.from(student.getCourses());
+                    }
+                })
+                .subscribe(subscriber);
     }
 }

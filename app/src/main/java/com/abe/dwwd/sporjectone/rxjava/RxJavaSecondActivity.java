@@ -139,9 +139,36 @@ public class RxJavaSecondActivity extends AppCompatActivity {
                 });
     }
 
-
     /**
-     *
+     * 变换map() demo
+     */
+    public void clickMapOne(){
+        Student[] students = new Student[]{new Student(),new Student()};
+        Subscriber<String> subscriber = new Subscriber<String>() {
+            @Override
+            public void onCompleted() {
+
+            }
+
+            @Override
+            public void onError(Throwable e) {
+
+            }
+
+            @Override
+            public void onNext(String s) {
+                Log.d(TAG,s);
+            }
+        };
+        Observable.from(students).map(new Func1<Student, String>() {
+            @Override
+            public String call(Student student) {
+                return student.getName();
+            }
+        }).subscribe(subscriber);
+    }
+    /**
+     * 变换 flatMap() demo
      */
     public void clickFlatMapOne(){
         Student[] students = new Student[]{new Student(),new Student()};

@@ -20,7 +20,7 @@ import com.abe.dwwd.sporjectone.utils.LogUtils;
 import com.orhanobut.logger.Logger;
 
 /**
- * Created by Administrator on 2017/1/13.
+ * Created by abe on 2017/1/13.
  */
 
 public class CustomHorzinonlChartView extends View {

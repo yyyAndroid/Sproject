@@ -48,5 +48,10 @@
         android:text="rxjava 变换"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content" />
+    <Button
+        android:onClick="clickVLayout"
+        android:text="v_Layout"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
 
 </LinearLayout>

@@ -5,6 +5,8 @@ import android.content.res.TypedArray;
 import android.graphics.Canvas;
 import android.graphics.Color;
 import android.graphics.Paint;
+import android.graphics.PorterDuff;
+import android.graphics.PorterDuffXfermode;
 import android.graphics.RectF;
 import android.util.AttributeSet;
 import android.util.Log;
@@ -23,14 +25,14 @@ import com.orhanobut.logger.Logger;
 
 public class CustomHorzinonlChartView extends View {
 
-    private Paint mChartPaint;
+    private Paint mChartPaint,mBgPaint;
     private int drawColor;
-    private int mHeight, mWidth, mChartWidth;
-    private int number;
+    private int mHeight, mWidth;
+    private int number = 2;
     private static final String TAG = "CustomHorzinonlChartVie";
     private String leftText,rightText;
     private Paint leftPaint,rightPaint;
-    private float moveTime;
+    private float moveTime = 1;
     public void setNumber(int number) {
         this.number = number;
 
@@ -85,13 +87,17 @@ public class CustomHorzinonlChartView extends View {
     }
 
     private void initialize() {
+
         mChartPaint = new Paint();
         mChartPaint.setAntiAlias(true);
+        mBgPaint = new Paint();
+        mBgPaint.setAntiAlias(true);
         leftPaint = new Paint();
+        leftPaint.setAntiAlias(true);
         leftPaint.setStyle(Paint.Style.FILL);
         rightPaint = new Paint();
+        rightPaint.setAntiAlias(true);
         rightPaint.setStyle(Paint.Style.FILL);
-
         leftText = "左边文字";
         rightText = "右边文字";
     }
@@ -124,28 +130,32 @@ public class CustomHorzinonlChartView extends View {
     @Override
     protected void onDraw(Canvas canvas) {
         super.onDraw(canvas);
+        mBgPaint.reset();
         mChartPaint.reset();
         LogUtils.d("onDraw()");
         mChartPaint.setColor(drawColor);
         mChartPaint.setStyle(Paint.Style.FILL);
 
+        int layerId = canvas.saveLayer(0, 0, mWidth, mHeight, null, Canvas.ALL_SAVE_FLAG);
         drawBg(canvas);
         drawPlan(canvas);
         drawText(canvas);
+        canvas.restoreToCount(layerId);
+
     }
 
     private void drawBg(Canvas canvas) {
-        mChartPaint.setColor(Color.GRAY);
+        mBgPaint.setColor(Color.GRAY);
         RectF rectFBg = new RectF();
         rectFBg.top = 0;
         rectFBg.bottom = mHeight;
         rectFBg.left = 0;
         rectFBg.right = mWidth;
-        canvas.drawRoundRect(rectFBg, mWidth/2, mWidth/2, mChartPaint);
-
+        canvas.drawRoundRect(rectFBg, mWidth/2, mWidth/2, mBgPaint);
     }
 
     private void drawPlan(Canvas canvas) {
+        mChartPaint.setXfermode(new PorterDuffXfermode(PorterDuff.Mode.SRC_IN));
         RectF rectF = new RectF();
         rectF.top = 0;
         rectF.bottom = mHeight;

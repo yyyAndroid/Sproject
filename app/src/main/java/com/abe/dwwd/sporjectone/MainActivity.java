@@ -14,6 +14,7 @@ import com.abe.dwwd.sporjectone.ui.activity.ChartActivity;
 import com.abe.dwwd.sporjectone.ui.activity.MoveActivity;
 import com.abe.dwwd.sporjectone.ui.activity.OkHttpActivity;
 import com.abe.dwwd.sporjectone.ui.activity.PullToRefreshActivity;
+import com.abe.dwwd.sporjectone.ui.activity.VLayoutActivity;
 import com.abe.dwwd.sporjectone.ui.activity.ViewPageActivity;
 import com.abe.dwwd.sporjectone.view.SignInDialog;
 
@@ -62,5 +63,9 @@ public class MainActivity extends BaseActivity {
     }
     public void clickRxVary(View view){
         startActivity(new Intent(this, RxJavaVaryActivity.class));
+    }
+
+    public void clickVLayout(View view){
+        startActivity(new Intent(this, VLayoutActivity.class));
     }
 }

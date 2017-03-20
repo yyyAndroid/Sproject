@@ -15,7 +15,6 @@
     <com.abe.dwwd.sporjectone.CustomView.CustomHorzinonlChartView
         android:layout_width="290dp"
         android:layout_height="20dp"
-        app:drawColor="@color/colorPrimaryDark"
         android:layout_alignParentTop="true"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"

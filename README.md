@@ -1,9 +1,14 @@
 # Sproject
 ####动画百分比柱状图
+
 <img src="https://github.com/yyyAndroid/Sproject/blob/master/gif/GIF.gif" width = "320" height = "640" align=center />
+
 ####ViewPage效果
+
 <img src="https://github.com/yyyAndroid/Sproject/blob/master/gif/GIF2.gif" width = "320" height = "640" align=center />
-####下拉刷新 
+
+#####下拉刷新 
+
 <img src="https://github.com/yyyAndroid/Sproject/blob/master/gif/GIF3.gif" width = "320" height = "640" align=center />
 
 ```
@@ -22,5 +27,5 @@
 </com.abe.dwwd.sporjectone.view.refresh.RefreshLayout>
 ```
 
-####签到dialog
+#####签到dialog
 <img src="https://github.com/yyyAndroid/Sproject/blob/master/gif/GIF4.gif" width = "320" height = "640" align=center />

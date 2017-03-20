@@ -25,7 +25,7 @@ import com.orhanobut.logger.Logger;
 
 public class CustomHorzinonlChartView extends View {
 
-    private Paint mChartPaint,mBgPaint;
+    private Paint mChartPaint;
     private int drawColor;
     private int mHeight, mWidth;
     private int number = 2;
@@ -90,8 +90,6 @@ public class CustomHorzinonlChartView extends View {
 
         mChartPaint = new Paint();
         mChartPaint.setAntiAlias(true);
-        mBgPaint = new Paint();
-        mBgPaint.setAntiAlias(true);
         leftPaint = new Paint();
         leftPaint.setAntiAlias(true);
         leftPaint.setStyle(Paint.Style.FILL);
@@ -130,7 +128,6 @@ public class CustomHorzinonlChartView extends View {
     @Override
     protected void onDraw(Canvas canvas) {
         super.onDraw(canvas);
-        mBgPaint.reset();
         mChartPaint.reset();
         LogUtils.d("onDraw()");
         mChartPaint.setColor(drawColor);
@@ -145,13 +142,13 @@ public class CustomHorzinonlChartView extends View {
     }
 
     private void drawBg(Canvas canvas) {
-        mBgPaint.setColor(Color.GRAY);
+        mChartPaint.setColor(Color.GRAY);
         RectF rectFBg = new RectF();
         rectFBg.top = 0;
         rectFBg.bottom = mHeight;
         rectFBg.left = 0;
         rectFBg.right = mWidth;
-        canvas.drawRoundRect(rectFBg, mWidth/2, mWidth/2, mBgPaint);
+        canvas.drawRoundRect(rectFBg, mWidth/2, mWidth/2, mChartPaint);
     }
 
     private void drawPlan(Canvas canvas) {

@@ -43,7 +43,8 @@
         <activity android:name=".rxjava.RxJavaSecondActivity" />
         <activity android:name=".rxjava.RxJavaVaryActivity" />
         <activity android:name=".ui.activity.SweetAlertDialogActivity" />
-        <activity android:name=".ui.activity.VLayoutActivity"></activity>
+        <activity android:name=".ui.activity.VLayoutActivity" />
+        <activity android:name=".ui.activity.SearchViewActivity"></activity>
     </application>
 
 </manifest>

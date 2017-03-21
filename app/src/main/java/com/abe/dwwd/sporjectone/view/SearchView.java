@@ -205,9 +205,9 @@ public class SearchView extends View {
     }
 
     private void initAnimator() {
-        mStartingAnimator = ValueAnimator.ofFloat(0, 1).setDuration(defaultDuration);
-        mSearchingAnimator = ValueAnimator.ofFloat(0, 1).setDuration(defaultDuration);
-        mEndingAnimator = ValueAnimator.ofFloat(1, 0).setDuration(defaultDuration);
+        mStartingAnimator = ValueAnimator.ofFloat(0, 1).setDuration(defaultDuration);//开始动画
+        mSearchingAnimator = ValueAnimator.ofFloat(0, 1).setDuration(defaultDuration);//搜索动画
+        mEndingAnimator = ValueAnimator.ofFloat(1, 0).setDuration(defaultDuration);//结束动画
 
         mStartingAnimator.addUpdateListener(mUpdateListener);
         mSearchingAnimator.addUpdateListener(mUpdateListener);
@@ -233,26 +233,30 @@ public class SearchView extends View {
         drawSearch(canvas);
     }
 
+    /**
+     * 绘制搜索
+     * @param canvas
+     */
     private void drawSearch(Canvas canvas) {
 
-        mPaint.setColor(Color.WHITE);
+        mPaint.setColor(Color.WHITE);//设置画笔我白色
 
 
-        canvas.translate(mViewWidth / 2, mViewHeight / 2);
+        canvas.translate(mViewWidth / 2, mViewHeight / 2);//移动中心点
 
-        canvas.drawColor(Color.parseColor("#0082D7"));
+        canvas.drawColor(Color.parseColor("#0082D7"));//设置画布颜色
 
         switch (mCurrentState) {
             case NONE:
                 canvas.drawPath(path_srarch, mPaint);
                 break;
-            case STARTING:
+            case STARTING://开始搜索
                 mMeasure.setPath(path_srarch, false);
                 Path dst = new Path();
                 mMeasure.getSegment(mMeasure.getLength() * mAnimatorValue, mMeasure.getLength(), dst, true);
                 canvas.drawPath(dst, mPaint);
                 break;
-            case SEARCHING:
+            case SEARCHING://搜索中
                 mMeasure.setPath(path_circle, false);
                 Path dst2 = new Path();
                 float stop = mMeasure.getLength() * mAnimatorValue;
@@ -260,7 +264,7 @@ public class SearchView extends View {
                 mMeasure.getSegment(start, stop, dst2, true);
                 canvas.drawPath(dst2, mPaint);
                 break;
-            case ENDING:
+            case ENDING://结束
                 mMeasure.setPath(path_srarch, false);
                 Path dst3 = new Path();
                 mMeasure.getSegment(mMeasure.getLength() * mAnimatorValue, mMeasure.getLength(), dst3, true);

@@ -65,6 +65,11 @@
                 android:text="SearchView"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content" />
+            <Button
+                android:onClick="clickPathMeasure"
+                android:text="PathMeasureView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
         </LinearLayout>
     </android.support.v4.widget.NestedScrollView>
 

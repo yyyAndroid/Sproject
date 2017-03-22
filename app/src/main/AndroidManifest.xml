@@ -44,7 +44,8 @@
         <activity android:name=".rxjava.RxJavaVaryActivity" />
         <activity android:name=".ui.activity.SweetAlertDialogActivity" />
         <activity android:name=".ui.activity.VLayoutActivity" />
-        <activity android:name=".ui.activity.SearchViewActivity"></activity>
+        <activity android:name=".ui.activity.SearchViewActivity" />
+        <activity android:name=".ui.activity.PathPainterActivity"></activity>
     </application>
 
 </manifest>

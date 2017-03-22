@@ -13,6 +13,7 @@ import com.abe.dwwd.sporjectone.ui.activity.BaseActivity;
 import com.abe.dwwd.sporjectone.ui.activity.ChartActivity;
 import com.abe.dwwd.sporjectone.ui.activity.MoveActivity;
 import com.abe.dwwd.sporjectone.ui.activity.OkHttpActivity;
+import com.abe.dwwd.sporjectone.ui.activity.PathPainterActivity;
 import com.abe.dwwd.sporjectone.ui.activity.PullToRefreshActivity;
 import com.abe.dwwd.sporjectone.ui.activity.SearchViewActivity;
 import com.abe.dwwd.sporjectone.ui.activity.VLayoutActivity;
@@ -72,5 +73,7 @@ public class MainActivity extends BaseActivity {
 
     public void clickSearch(View view){
         startActivity(new Intent(this, SearchViewActivity.class));
+    } public void clickPathMeasure(View view){
+        startActivity(new Intent(this, PathPainterActivity.class));
     }
 }

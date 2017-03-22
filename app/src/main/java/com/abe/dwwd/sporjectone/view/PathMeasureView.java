@@ -61,7 +61,8 @@ class PathMeasureView extends View {
         //硬件加速bug
         mDst.lineTo(0,0);
         float stop = mLength * mAnimatorValue;
-        mPathMeasre.getSegment(0,stop,mDst,true);
+        float start = (float) (stop - ((0.5 - Math.abs(mAnimatorValue - 0.5)) * mLength));
+        mPathMeasre.getSegment(start,stop,mDst,true);
         canvas.drawPath(mDst,mPaint);
     }
 }

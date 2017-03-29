@@ -21,7 +21,7 @@ import com.abe.dwwd.sporjectone.utils.LogUtils;
 
 public class RefreshLayout extends FrameLayout {
 
-    private static final float OFFSET_RADIO = 1.8f;
+    private static final float OFFSET_RADIO = 2.0f;
 
     private View mChildView;//子控件
     private View mScrollableView;//

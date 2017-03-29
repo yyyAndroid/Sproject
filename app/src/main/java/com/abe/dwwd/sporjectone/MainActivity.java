@@ -73,7 +73,8 @@ public class MainActivity extends BaseActivity {
 
     public void clickSearch(View view){
         startActivity(new Intent(this, SearchViewActivity.class));
-    } public void clickPathMeasure(View view){
+    }
+    public void clickPathMeasure(View view){
         startActivity(new Intent(this, PathPainterActivity.class));
     }
 }
